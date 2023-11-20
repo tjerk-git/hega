@@ -4,21 +4,33 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import { SEO } from "astro-seo";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="description"
-			content="The platform where healthcare challenges meet sustainable gaming innovations"
-		/>
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
+	<SEO
+		title="Hega"
+		description="The platform where healthcare challenges meet sustainable gaming innovations"
+		openGraph={{
+			basic: {
+				title: "Hega",
+				type: "website",
+				image: "./logo-hega.png",
+			},
+		}}
+	/>
+
+	<meta charset="UTF-8" />
+	<meta
+		name="description"
+		content="The platform where healthcare challenges meet sustainable gaming innovations"
+	/>
+	<meta name="viewport" content="width=device-width" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<meta name="generator" content={Astro.generator} />
+	<title>{title}</title>
+
 	<body>
 		<slot />
 	</body>
